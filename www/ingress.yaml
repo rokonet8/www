@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: www
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: www.pi1.dirokonet.de
+    http:
+      paths:
+      - backend:
+          service:
+            name: www
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
